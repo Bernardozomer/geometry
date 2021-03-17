@@ -3,4 +3,4 @@
 
 **v2.0**
 
-Shapes aren't meant to be edited.
+Shapes aren't meant to be changed once created.
