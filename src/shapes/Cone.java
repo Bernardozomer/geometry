@@ -22,18 +22,16 @@ public class Cone extends Solid {
 
     @Override
     public String toFormattedString() {
+        String formattedBase = "BASE:\n" + getBase().toFormattedString();
+
         Map<String, Double> vars = new LinkedHashMap<>();
-        vars.put("Base radius", getBase().getRadius());
-        vars.put("Base diameter", getBase().getDiameter());
-        vars.put("Base circumference", getBase().getCircumference());
-        vars.put("Base area", getBase().getArea());
         vars.put("Height", getHeight());
         vars.put("Slant height", getSlantHeight());
         vars.put("Lateral surface area", getLateralArea());
         vars.put("Total surface area", getArea());
         vars.put("Volume", getVolume());
 
-        return Out.printShapeVars(vars);
+        return formattedBase + "\nTHE SOLID:\n" + Out.formatShapeVars(vars);
     }
 
     @Override

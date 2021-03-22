@@ -21,7 +21,7 @@ public class Sphere extends RoundShape {
         vars.put("Area", getArea());
         vars.put("Volume", getVolume());
 
-        return Out.printShapeVars(vars);
+        return Out.formatShapeVars(vars);
     }
 
     @Override

@@ -3,7 +3,7 @@ package utils;
 import java.util.Map;
 
 public class Out {
-    public static String printShapeVars(Map<String, Double> vars) {
+    public static String formatShapeVars(Map<String, Double> vars) {
         StringBuilder output = new StringBuilder();
 
         for (Map.Entry<String, Double> entry : vars.entrySet()) {

@@ -22,18 +22,14 @@ public abstract class PlatonicSolid extends Solid {
 
     @Override
     public final String toFormattedString() {
+        String formattedFaces = "FACES:\n" + getFaceShape().toFormattedString();
+
         Map<String, Double> vars = new LinkedHashMap<>();
-        vars.put("Face number of sides", (double) getFaceShape().getNumberOfSides());
-        vars.put("Face length", getFaceShape().getSideLength());
-        vars.put("Face perimeter", getFaceShape().getPerimeter());
-        vars.put("Face area", getFaceShape().getArea());
-        vars.put("Face internal angle", getFaceShape().getInternalAngle());
-        vars.put("Face external angle", getFaceShape().getExternalAngle());
         vars.put("Number of faces", (double) getNumberOfFaces());
         vars.put("Total surface area", getArea());
         vars.put("Volume", getVolume());
 
-        return Out.printShapeVars(vars);
+        return formattedFaces + "\nTHE SOLID:\n" + Out.formatShapeVars(vars);
     }
 
     public final void setFaceShape(RegularPolygon faceShape) {

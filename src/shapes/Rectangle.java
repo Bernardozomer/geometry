@@ -25,7 +25,7 @@ public class Rectangle extends Polygon {
         vars.put("Perimeter", getPerimeter());
         vars.put("Area", getArea());
 
-        return Out.printShapeVars(vars);
+        return Out.formatShapeVars(vars);
     }
 
     @Override

@@ -2,67 +2,58 @@ package shapes;
 
 import utils.Out;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RectangularCuboid extends Solid {
-    protected double length;
-    protected double height;
-    protected double width;
+    private Rectangle frontFace;
+    private Rectangle sideFace;
+    private Rectangle topFace;
 
     public RectangularCuboid(double length, double height, double width) {
-        setLength(length);
-        setHeight(height);
-        setWidth(width);
+        setFaces(length, height, width);
         setArea();
         setVolume();
     }
 
     @Override
     public String toFormattedString() {
-        Map<String, Double> vars = new HashMap<>();
-        vars.put("Length", getLength());
-        vars.put("Height", getHeight());
-        vars.put("Width", getWidth());
+        String formattedFaces = "FACES:\n" + getFrontFace().toFormattedString() + "\n" +
+                getSideFace().toFormattedString() + "\n" + getTopFace().toFormattedString();
+
+        Map<String, Double> vars = new LinkedHashMap<>();
         vars.put("Total surface area", getArea());
         vars.put("Volume", getVolume());
 
-        return Out.printShapeVars(vars);
+        return formattedFaces + "\nTHE SHAPE ITSELF:\n" + Out.formatShapeVars(vars);
     }
 
     @Override
     protected void setArea() {
-        area = 2 * (getLength() * getHeight()
-                + getLength() * getWidth()
-                + getHeight() * getWidth());
+        area = 2 * (frontFace.getArea() + sideFace.getArea() + topFace.getArea());
     }
 
     @Override
     protected void setVolume() {
-        volume = getLength() * getHeight() * getWidth();
+        // Length * height * width
+        volume = getFrontFace().getLength() * getSideFace().getHeight() * getTopFace().getHeight();
     }
 
-    public double getLength() {
-        return length;
+    public Rectangle getFrontFace() {
+        return frontFace;
     }
 
-    private void setLength(double length) {
-        this.length = length;
+    public Rectangle getSideFace() {
+        return sideFace;
     }
 
-    public double getHeight() {
-        return height;
+    public Rectangle getTopFace() {
+        return topFace;
     }
 
-    private void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    private void setWidth(double width) {
-        this.width = width;
+    private void setFaces(double length, double height, double width) {
+        frontFace = new Rectangle(length, height);
+        sideFace = new Rectangle(width, height);
+        topFace = new Rectangle(length, width);
     }
 }

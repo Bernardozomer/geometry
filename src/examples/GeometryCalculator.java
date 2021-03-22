@@ -17,7 +17,7 @@ public class GeometryCalculator {
         System.out.println("(ci for circle, co for cone, cu for cube, cy for cylinder,\n" +
                 "rect for rectangle, cubo for rectangular cuboid, poly for regular polygon,\n" +
                 "sph for sphere and tetra for tetrahedron)");
-
+                
         String shapeCode = in.next();
         System.out.println();
 
@@ -84,7 +84,7 @@ public class GeometryCalculator {
             // Regular polygon
             case "poly":
                 int regPolyNumberOfFaces = (int) inputShapeVar("number of sides");
-                double regPolySideLength = inputShapeVar("side length");
+                double regPolySideLength = inputShapeVar("edge length");
 
                 RegularPolygon regularPolygon = new RegularPolygon(
                         regPolyNumberOfFaces, regPolySideLength);

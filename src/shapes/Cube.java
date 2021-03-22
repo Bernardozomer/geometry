@@ -2,7 +2,7 @@ package shapes;
 
 public class Cube extends PlatonicSolid {
     public Cube(double edgeLength) {
-        super(new RegularPolygon(6, edgeLength), 6);
+        super(new RegularPolygon(4, edgeLength), 6);
     }
 
     @Override

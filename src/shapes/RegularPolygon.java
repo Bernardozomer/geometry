@@ -10,8 +10,8 @@ public class RegularPolygon extends Polygon {
     private double internalAngle;
     private double externalAngle;
 
-    public RegularPolygon(int numberOfFaces, double sideLength) {
-        super(numberOfFaces);
+    public RegularPolygon(int numberOfSides, double sideLength) {
+        super(numberOfSides);
         setSideLength(sideLength);
         setPerimeter();
         setArea();
@@ -28,7 +28,7 @@ public class RegularPolygon extends Polygon {
         vars.put("Internal angle", getInternalAngle());
         vars.put("External angle", getExternalAngle());
 
-        return Out.printShapeVars(vars);
+        return Out.formatShapeVars(vars);
     }
 
     @Override

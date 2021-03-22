@@ -18,7 +18,7 @@ public class Circle extends RoundShape{
         vars.put("Circumference", getCircumference());
         vars.put("Area", getArea());
 
-        return Out.printShapeVars(vars);
+        return Out.formatShapeVars(vars);
     }
 
     @Override
